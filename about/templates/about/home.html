@@ -1,6 +1,7 @@
 
 <!doctype html>
 <html lang="en">
+  {% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,7 +53,7 @@
           <p class="lead text-muted">{{person.title}}</p>
           <p>
             <a href="mailto:jatinarora208@gmail.com" class="btn btn-success my-2">Hire Me</a>
-            <a href="#" class="btn btn-success my-2">Download CV</a>
+            <a href="{% static 'resume.pdf' %}" class="btn btn-success my-2">Download CV</a>
           </p>
         </div>
       </section>
@@ -127,8 +128,9 @@
             {% for portfolio in person.portfolios.all %}
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{ portfolio.projectpic.url }}">
+                <img class="card-img-top" width="150" height="150" src="{{ portfolio.projectpic.url }}">
                 <div class="card-body">
+                  <a href="#"><h3>{{ portfolio.projecttitle }}</h3></a>
                   <p class="card-text">{{portfolio.projectsummary}}</p>
                 </div>
               </div>
@@ -141,7 +143,11 @@
     </main>
 
     <footer class="footer">
-      <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
+      <div class="container text-center">
+        <a class="cc-facebook btn btn-link" href="https://www.facebook.com/jatinarora420"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a>
+        <a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a>
+        <a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a>
+        <a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
       <div class="h4 title text-center">Jatin Arora</div>
     </footer>
 
